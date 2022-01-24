@@ -19,21 +19,21 @@ int	calc_range_ba(int range, t_stack *a, t_stack *b)
 {
 	if (range == 1)
 	{
-		push_stack(b, a);
+		push_stack(b, a, A);
 		return (1);
 	}
 	else if (range == 2)
 	{
 		if (b->top->num < b->top->next->num)
-			swap_stack(b);
-		push_stack(b, a);
-		push_stack(b, a);
+			swap_stack(b, B);
+		push_stack(b, a, A);
+		push_stack(b, a, A);
 		return (1);
 	}
 	else if (range == 0)
 		return (1);
 	else
-		return (0);	
+		return (0);
 }
 
 int	Max(int a, int b, int c)

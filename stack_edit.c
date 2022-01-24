@@ -1,24 +1,32 @@
 #include "push_swap.h"
 
-void	swap_stack(t_stack *stack)
+void	swap_stack(t_stack *stack, int type)
 {
 	int	temp_num;
 
 	temp_num = stack->top->num;
 	stack->top->num = stack->top->next->num;
 	stack->top->next->num = temp_num;
+	if (type == A)
+		ft_putstr_fd("sa\n", 1);
+	else if (type == B)
+		ft_putstr_fd("sb\n", 1);
 }
 
-void	push_stack(t_stack *out, t_stack *put)
+void	push_stack(t_stack *out, t_stack *put, int type)
 {
 	int	num;
 
 	num = out->top->num;
 	push(put, num);
 	pop(out);
+	if (type == A)
+		ft_putstr_fd("pa\n", 1);
+	else if (type == B)
+		ft_putstr_fd("pb\n", 1);
 }
 
-void	rotate_stack(t_stack *stack)
+void	rotate_stack(t_stack *stack, int type)
 {
 	t_node	*node;
 
@@ -32,9 +40,13 @@ void	rotate_stack(t_stack *stack)
 	stack->tail->prev = node;
 	node->prev->next = node;
 	stack->top = stack->head->next;
+	if (type == A)
+		ft_putstr_fd("ra\n", 1);
+	else if (type == B)
+		ft_putstr_fd("rb\n", 1);
 }
 
-void	reverse_rotate_stack(t_stack *stack)
+void	reverse_rotate_stack(t_stack *stack, int type)
 {
 	t_node	*node;
 
@@ -48,4 +60,8 @@ void	reverse_rotate_stack(t_stack *stack)
 	node->next = stack->top;
 	stack->top->prev = node;
 	stack->top = node;
+	if (type == A)
+		ft_putstr_fd("rra\n", 1);
+	else if (type == B)
+		ft_putstr_fd("rrb\n", 1);
 }

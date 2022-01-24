@@ -15,12 +15,12 @@ t_count	do_ab(t_stack *a, t_stack *b, int range, t_count count)
 	{
 		if (a->top->num > a->median)
 		{
-			rotate_stack(a);
+			rotate_stack(a, A);
 			count.ra++;
 		}
 		else
 		{
-			push_stack(a, b);
+			push_stack(a, b, B);
 			count.pb++;
 		}
 	}
@@ -41,11 +41,10 @@ void	push_swap_ab(t_stack *a, t_stack *b, int range)
 	{
 		while (i < (count.ra))
 		{
-			reverse_rotate_stack(a);
+			reverse_rotate_stack(a, A);
 			i++;
 		}
 	}
-	show_all(a, b);
 	push_swap_ab(a, b, count.ra);
 	push_swap_ba(a, b, count.pb);
 }
@@ -57,12 +56,12 @@ t_count	do_ba(t_stack *a, t_stack *b, int range, t_count count)
 	{
 		if (b->top->num > b->median)
 		{
-			push_stack(b, a);
+			push_stack(b, a, A);
 			count.pa++;
 		}
 		else
 		{
-			rotate_stack(b);
+			rotate_stack(b, B);
 			count.rb++;
 		}
 	}
@@ -83,11 +82,10 @@ void	push_swap_ba(t_stack *a, t_stack *b, int range)
 	{
 		while (i < (count.rb))
 		{
-			reverse_rotate_stack(b);
+			reverse_rotate_stack(b, B);
 			i++;
 		}
 	}
-	show_all(a, b);
 	push_swap_ab(a, b, count.pa);
 	push_swap_ba(a, b, count.rb);
 }

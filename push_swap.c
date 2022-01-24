@@ -39,10 +39,6 @@ int	main(int argc, char **argv)
 	create_stack(stack_a);
 	create_stack(stack_b);
 	check_input(argc, argv, stack_a);
-	printf("--------origin-------\n");
-	show(stack_a);
-	printf("----------------\n\n");
 	push_swap_ab(stack_a, stack_b, stack_a->length);
-	show_all(stack_a, stack_b);
 	return (0);
 }
