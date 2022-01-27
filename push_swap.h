@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gson <gson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/25 20:36:22 by gson              #+#    #+#             */
+/*   Updated: 2022/01/27 21:46:43 by gson             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -50,6 +62,9 @@ void	rotate_stack(t_stack *stack, int type);
 void	reverse_rotate_stack(t_stack *a, int type);
 void	set_mid(t_stack *a);
 int		calc_range_ba(int range, t_stack *a, t_stack *b);
+int		check_mid_five(t_stack *a, int range);
+void	push_swap_three(t_stack *a);
+void	push_swap_five(t_stack *a, t_stack *b, int range);
 void	push_swap_ab(t_stack *a, t_stack *b, int range);
 void	push_swap_ba(t_stack *a, t_stack *b, int range);
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_input.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gson <gson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/25 20:36:29 by gson              #+#    #+#             */
+/*   Updated: 2022/01/26 19:37:14 by gson             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	check_sorted(t_stack *a)
@@ -5,7 +17,7 @@ int	check_sorted(t_stack *a)
 	t_node	*cur;
 
 	cur = a->top;
-	while (cur != a->tail)
+	while (cur->next != a->tail)
 	{
 		if (cur->num > cur->next->num)
 			return (1);
@@ -63,5 +75,9 @@ int	check_input(int argc, char **argv, t_stack *stack_a)
 		}
 	}
 	is_duplicated(stack_a);
+	if (check_sorted(stack_a) == 0)
+	{
+		exit(1);
+	}
 	return (1);
 }

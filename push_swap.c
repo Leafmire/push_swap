@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gson <gson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/25 20:36:36 by gson              #+#    #+#             */
+/*   Updated: 2022/01/27 21:59:17 by gson             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_stack	*stack_init(void)
@@ -29,6 +41,16 @@ void	create_stack(t_stack *stack)
 	stack->top = tail;
 }
 
+void	push_swap(t_stack *a, t_stack *b, int range)
+{
+	if (range == 3)
+		push_swap_three(a);
+	else if (range == 5)
+		push_swap_five(a, b, range);
+	else
+		push_swap_ab(a, b, range);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -39,6 +61,6 @@ int	main(int argc, char **argv)
 	create_stack(stack_a);
 	create_stack(stack_b);
 	check_input(argc, argv, stack_a);
-	push_swap_ab(stack_a, stack_b, stack_a->length);
+	push_swap(stack_a, stack_b, stack_a->length);
 	return (0);
 }
