@@ -12,9 +12,15 @@
 
 NAME = push_swap
 
-SRCS = calculate.c check_input.c ft_atoi.c ft_isdigit.c ft_putstr_fd.c \
+SRC_DIR = ./src/
+
+INC_DIR = ./include/
+
+SRC = calculate.c check_input.c ft_atoi.c ft_isdigit.c ft_putstr_fd.c \
 		ft_strlen.c push_swap.c sort_small.c sort.c stack_edit.c stack_util.c \
 		stack_util2.c
+
+SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
 OBJS = $(SRCS:.c=.o)
 
@@ -28,7 +34,7 @@ $(NAME) : $(OBJS)
 		$(CC) -o $(NAME) $(OBJS)
 
 %.o: %.c
-		gcc $(CFLAGS) -c $< -o $@
+		gcc $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 
 all : $(NAME)
 
