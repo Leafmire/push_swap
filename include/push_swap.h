@@ -6,7 +6,7 @@
 /*   By: gson <gson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:36:22 by gson              #+#    #+#             */
-/*   Updated: 2022/01/27 21:46:43 by gson             ###   ########.fr       */
+/*   Updated: 2022/02/04 02:37:27 by gson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct s_stack {
 int		ft_isdigit(int c);
 int		ft_strlen(const char *s);
 int		ft_lstsize(t_stack *stack);
+char	*ft_strchr(const char *s, int c);
+char	**ft_split(char const *s, char c);
 int		Max(int a, int b, int c);
 int		Min(int a, int b, int c);
 int		check_input(int argc, char **argv, t_stack *stack_a);

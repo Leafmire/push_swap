@@ -18,7 +18,7 @@ INC_DIR = ./include/
 
 SRC = calculate.c check_input.c ft_atoi.c ft_isdigit.c ft_putstr_fd.c \
 		ft_strlen.c push_swap.c sort_small.c sort.c stack_edit.c stack_util.c \
-		stack_util2.c
+		stack_util2.c ft_split.c ft_strchr.c
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 

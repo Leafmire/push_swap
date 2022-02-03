@@ -6,7 +6,7 @@
 /*   By: gson <gson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:36:29 by gson              #+#    #+#             */
-/*   Updated: 2022/01/26 19:37:14 by gson             ###   ########.fr       */
+/*   Updated: 2022/02/04 03:27:41 by gson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,24 @@ void	is_duplicated(t_stack *a)
 	}
 }
 
+static	void	split_space(char *str, t_stack *stack_a)
+{
+	char	**split;
+	int		i;
+
+	split = ft_split(str, ' ');
+	i = 0;
+	while (split[i] != NULL)
+		i++;
+	while (i > 0)
+	{
+		push(stack_a, ft_atoi(split[i - 1]));
+		free(split[i - 1]);
+		i--;
+	}
+	free(split);
+}
+
 int	check_input(int argc, char **argv, t_stack *stack_a)
 {
 	if (argc <= 1)
@@ -70,14 +88,15 @@ int	check_input(int argc, char **argv, t_stack *stack_a)
 	{
 		while (argc > 1)
 		{
-			push(stack_a, ft_atoi(argv[argc - 1]));
+			if (ft_strchr(argv[argc - 1], ' ') != NULL)
+				split_space(argv[argc - 1], stack_a);
+			else
+				push(stack_a, ft_atoi(argv[argc - 1]));
 			argc--;
 		}
 	}
 	is_duplicated(stack_a);
 	if (check_sorted(stack_a) == 0)
-	{
 		exit(1);
-	}
 	return (1);
 }
